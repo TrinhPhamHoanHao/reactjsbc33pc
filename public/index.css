@@ -1,0 +1,58 @@
+
+/* Bài Tập 1: Layout */
+.header .navbar .nav .about:hover{
+    color: #fff !important;
+    transition: all .5s;
+}   
+.header .navbar .nav .contact:hover{
+    color: #fff !important;
+    transition: all .5s;
+
+}
+
+
+/* //Bài tập 2: glasses */
+.glasses .title{
+    background-color: rgb(6 6 6 / 68%);
+}
+.glasses{
+    background-color: lightpink;
+}
+.glasses .img{
+    position: relative;
+}
+.glasses .img .glass{
+    position: absolute;
+    top: 172px;
+    left: 827px;
+    width: 250px;
+    /* display: none; */
+}
+
+.glasses .img .info{
+    position: absolute;
+    bottom: 24px;
+    left: 712px;
+    text-align: left;
+    background-color:  rgb(221 72 17 / 41%);
+    width: 480px;
+}
+.glasses .img .info h3{
+    padding-top: 10px;
+}
+.glasses .img .info p{
+    padding-bottom: 40px;
+}
+.container{
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+.container .row{
+    background: #fff;
+}
+.container .row img{
+    width: 200px;
+    height: 120px;
+    background-size: cover;
+}
