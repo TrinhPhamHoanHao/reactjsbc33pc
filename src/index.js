@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ExerciseCart from './assets/BaiTapCart/ExerciseCart';
+import BaiTapForm from './BaiTapForm/BaiTapForm';
 import BaiTapGlasses from './BaiTapGlasses/BaiTapGlasses';
 import BaiTapThucHanhLayout from './BaiTapLayoutComponent/BaiTapThucHanhLayout';
 import RenderArrayComponent from './RenderArrayComponent/RenderArrayComponent';
@@ -12,6 +13,7 @@ root.render(
   // <RenderArrayComponent/>
   // <BaiTapThucHanhLayout/>
   // <BaiTapGlasses/>
-  <ExerciseCart/>
+  // <ExerciseCart/>
+  <BaiTapForm/>
 );
 

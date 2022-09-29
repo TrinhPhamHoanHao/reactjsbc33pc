@@ -12,7 +12,7 @@ export default class extends Component {
   };
   render() {
     return (
-      <div className='row'>
+      <div className='row'> 
         {this.renderProduct()}
       </div>
     );
