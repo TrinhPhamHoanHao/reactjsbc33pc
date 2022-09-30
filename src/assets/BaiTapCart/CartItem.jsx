@@ -16,7 +16,7 @@ export default class CartItem extends Component {
           <button className="btn btn-success mx-3" onClick={()=>{
                 xemChiTiet(prod)
           }}>Xem chi tiết</button>
-          <button className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalId" onClick={()=>{
+          <button className="btn btn-danger" onClick={()=>{
                 addCart(prod)
           }}>Thêm vào giỏ hàng</button>
         </div>

@@ -2,15 +2,10 @@ import React, { Component } from 'react'
 import CartItem from './CartItem';
 import CartList from './CartList'
 
-// const data = {}
 export default class Cart extends Component {
 
-  state ={
-    soLuong: 1,
-}
-
   render() {
-    const {spChiTiet,prod,delProduct,spAddCart} = this.props;
+    const {spChiTiet,prod,delProduct,spAddCart,tangGiamSoLuong} = this.props;
     return (
       <div>
         
@@ -31,7 +26,7 @@ export default class Cart extends Component {
         <div className="modal-body">
           <div className='table'>
             <thead>
-                <tr className='d-flex align-items-center flex-wrap'>
+                <tr className=''>
                     <th className='ps-4'>Mã sản phẩm</th>
                     <th className='ps-4'>Hình ảnh</th>
                     <th className='ps-4'>Tên sản phẩm</th>
@@ -39,30 +34,39 @@ export default class Cart extends Component {
                     <th className='ps-4'>Đơn giá</th>
                     <th className='ps-4'>Thành tiền</th>
                 </tr>
-                <tr className='d-flex align-items-center  flex-wrap'>
-                    <td className='px-5'>{spAddCart.maSP}</td>
-                    <td className='ps-5'><img src={spAddCart.hinhAnh} className="w-100" style={{objectFit:"contain",height:"100px"}}/></td>
-                    <td className=''>{spAddCart.tenSP}</td>
-                    <td className='ps-3'>
-                        <button className='btn btn-primary text-white me-1' onClick={(()=>{
-                          this.setState({
-                            soLuong: this.state.soLuong + 1
-                          })
+            </thead>
+            <tbody>
+                {spAddCart.map((prod,index)=>{
+                  return <tr key={index} className="text-center">
+                      <td>{prod.maSP}</td>
+                      <td><img src={prod.hinhAnh} width={50} height={50}/></td> 
+                      <td>{prod.tenSP}</td>
+                      <td><button className='btn btn-primary text-white me-1' onClick={(()=>{
+                          tangGiamSoLuong(prod.maSP,true)
                         })}>+</button>
-                        {this.state.soLuong}
+                        {prod.soLuong}
                         <button className='btn btn-primary text-white ms-1' onClick={(()=>{
-                          this.setState({
-                            soLuong: this.state.soLuong - 1
-                          })
+                          tangGiamSoLuong(prod.maSP,false)
                         })}>-</button>
                         </td>
-                    <td className='px-2'>{spAddCart.giaBan.toLocaleString()}</td>
-                    <td className='px-4'>{(spAddCart.giaBan * this.state.soLuong).toLocaleString()}</td>
-                    <td><button className='btn btn-danger text-white' onClick={(()=>{
-                        delProduct(prod)
+                      <td>{prod.giaBan.toLocaleString()}</td>
+                      <td>{(prod.giaBan * prod.soLuong).toLocaleString()}</td>
+                      <td><button className='btn btn-danger text-white' onClick={(()=>{
+                        delProduct(prod.maSP)
                     })}>Xóa</button></td>
-                </tr>
-            </thead>
+                  </tr>
+                })}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan={5}></td>
+                <th>Tổng tiền: {this.props.spAddCart.reduce((tongTien,prod)=>{
+                  return tongTien += prod.soLuong * prod.giaBan; 
+                },0).toLocaleString()}
+                </th>
+                
+              </tr>
+            </tfoot>
           </div>
         </div>
         <div className="modal-footer">
