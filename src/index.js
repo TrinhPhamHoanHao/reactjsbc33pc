@@ -13,7 +13,7 @@ root.render(
   // <RenderArrayComponent/>
   // <BaiTapThucHanhLayout/>
   // <BaiTapGlasses/>
-  <ExerciseCart/>
-  // <BaiTapForm/>
+  // <ExerciseCart/>
+  <BaiTapForm/>
 );
 
