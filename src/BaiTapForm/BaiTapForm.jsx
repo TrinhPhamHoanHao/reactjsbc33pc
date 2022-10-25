@@ -33,6 +33,7 @@ export default class BaiTapForm extends Component {
                 email: "nguyenvanb@gmail.com",
             },
         ],
+        
     };
 
     handleChangeInput = (e) => {
@@ -101,15 +102,10 @@ export default class BaiTapForm extends Component {
     searchSV = () => {
         let { values, arrSV } = this.state;
         let keyword = values;
-        let svSearch = []; 
-        for (let key of arrSV) {
-            if(arrSV[key].name == keyword.name){
-                svSearch.push(arrSV[key])
-            }
-        }
+        const svSearch = arrSV.filter(sv => sv.name.includes(keyword.search.trim()));
         this.setState({
             arrSV: svSearch
-        },()=>{
+        }, () => {
             console.log(svSearch);
         })
     };
